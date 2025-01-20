@@ -11,8 +11,8 @@ class OrderCalculatorTest {
     void add_items() {
         OrderCalculator orderCalculator = new OrderCalculator();
 
-        List<Item> items = orderCalculator.addItems("apple", 30, 2);
-        orderCalculator.addItems("banana", 50, 3);
+        List<Item> items = orderCalculator.addItems(new Item("apple", 30, 2));
+        orderCalculator.addItems(new Item("banana", 50, 3));
         Item item = items.get(0);
         Assertions.assertThat(item.getName()).isEqualTo("apple");
         Assertions.assertThat(item.getQuantity()).isEqualTo(2);
@@ -26,8 +26,8 @@ class OrderCalculatorTest {
     @Test
     void total_price() {
         OrderCalculator orderCalculator = new OrderCalculator();
-        orderCalculator.addItems("banana", 50, 3);
-        orderCalculator.addItems("apple", 30, 2);
+        orderCalculator.addItems(new Item("banana", 50, 3));
+        orderCalculator.addItems(new Item("apple", 30, 2));
         Assertions.assertThat(orderCalculator.totalPrice()).isEqualTo(210);
     }
 

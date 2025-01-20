@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderCalculator {
-    private List<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
     public int totalPrice;
-    public List<Item> addItems(String name,int price ,int quantity) {
+    public List<Item> addItems(Item newItem) {
 
-        items.add(new Item(name, price,quantity));
+        items.add(newItem);
 
         return items;
     }
@@ -16,11 +16,7 @@ public class OrderCalculator {
 
     public int totalPrice() {
 
-        for( int i = 0; i < items.size(); i++) {
-
-            totalPrice += items.get(i).getPrice()*items.get(i).getQuantity();
-
-        }
+        for (Item item : items) {totalPrice += item.getPrice() * item.getQuantity();}
 
         return totalPrice;
     }

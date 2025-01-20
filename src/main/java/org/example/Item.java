@@ -1,18 +1,17 @@
 package org.example;
 
+import lombok.Getter;
+
 public class Item {
-    private String name;
-    private int price;
-    private int quantity;
+    @Getter
+    private final String name;
+    private final int price;
+    private final int quantity;
 
     public Item(String name,int price ,int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public Integer getPrice() {
